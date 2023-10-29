@@ -1,8 +1,10 @@
-import { deployContract } from '@scio-labs/use-inkathon'
+import { SubstrateChain, deployContract } from '@scio-labs/use-inkathon'
 import * as dotenv from 'dotenv'
 import { getDeploymentData } from './utils/getDeploymentData'
 import { initPolkadotJs } from './utils/initPolkadotJs'
 import { writeContractAddresses } from './utils/writeContractAddresses'
+import { IKeyringPair } from '@polkadot/types/types'
+import { ApiPromise } from '@polkadot/api'
 
 // [KEEP THIS] Dynamically load environment from `.env.{chainId}`
 const chainId = process.env.CHAIN || 'development'
@@ -25,9 +27,17 @@ const main = async () => {
   // [KEEP THIS] Initialization
   const accountUri = process.env.ACCOUNT_URI || '//Alice'
   const { api, chain, account } = await initPolkadotJs(chainId, accountUri)
-
+  await deployer('greeter', api, chain, account)
+  await deployer('registry', api, chain, account)
+}
+const deployer = async (
+  contractName: string,
+  api: ApiPromise,
+  chain: SubstrateChain,
+  account: IKeyringPair,
+) => {
   // Deploy greeter contract
-  const { abi, wasm } = await getDeploymentData('greeter')
+  const { abi, wasm } = await getDeploymentData(contractName)
   const greeter = await deployContract(api, account, abi, wasm, 'default', [])
 
   // Write contract addresses to `{contract}/{network}.ts` file(s)
@@ -35,7 +45,6 @@ const main = async () => {
     greeter,
   })
 }
-
 main()
   .catch((error) => {
     console.error(error)
