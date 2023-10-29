@@ -15,3 +15,13 @@ if [[ ! -e deployments/greeter/development.ts ]]; then
 else
     echo "Great, 'development.ts' already exists! Skipping…"
 fi
+if [[ ! -e deployments/registry/development.ts ]]; then
+    echo "Creating empty 'development.ts'…"
+    if command -v touch &> /dev/null; then
+        touch deployments/registry/development.ts
+    else
+        copy /b deployments/registry/development.ts +,,
+    fi
+else
+    echo "Great, 'development.ts' already exists! Skipping…"
+fi
