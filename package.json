@@ -16,6 +16,7 @@
     "dev": "pnpm run -F frontend dev",
     "build": "pnpm run -F frontend build",
     "start": "pnpm run -F frontend start",
+    "deploy": "pnpm run -F contracts deploy",
     "node": "pnpm run -F contracts node",
     "lint": "pnpm run -F '*' lint",
     "lint:fix": "pnpm run -F '*' lint:fix",
