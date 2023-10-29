@@ -14,8 +14,9 @@ const StyledIconLink = styled(Link)(() => [
 ])
 
 export const HomePageTitle: FC = () => {
-  const title = 'ink!athon'
-  const desc = 'Full-Stack DApp Boilerplate for Substrate and ink! Smart Contracts'
+  const title = 'PLEARN'
+  const desc =
+    'Welcome to PLEARN, the virtual board game that combines education with entertainment. It provides a fun and interactive way to learn financial literacy and make smart investments.'
   const githubHref = 'https://github.com/scio-labs/inkathon'
   const deployHref = 'https://github.com/scio-labs/inkathon#deployment'
   const sponsorHref = 'mailto:hello@scio.xyz'
@@ -39,38 +40,40 @@ export const HomePageTitle: FC = () => {
         <p tw="mt-2 text-gray-600 text-sm">
           By{' '}
           <a
-            href="https://zoma.dev"
+            href="https://www.linkedin.com/in/emanherawy"
             target="_blank"
             tw="font-semibold text-gray-500 hover:text-gray-100"
           >
-            Dennis Zoma
+            Eman Herawy
           </a>{' '}
           &{' '}
           <a
-            href="https://scio.xyz"
+            href="https://www.linkedin.com/in/nada-jabr-15838b39/"
             target="_blank"
             tw="font-semibold text-gray-500 hover:text-gray-100"
           >
-            Scio Labs
+            Nada Jabr
+          </a>
+          &{' '}
+          <a
+            href="https://www.linkedin.com/in/beshoy"
+            target="_blank"
+            tw="font-semibold text-gray-500 hover:text-gray-100"
+          >
+            Beshoy Shehata
+          </a>
+          &{' '}
+          <a
+            href="https://www.linkedin.com/in/ujjwal-sachdeva-5064651b4/"
+            target="_blank"
+            tw="font-semibold text-gray-500 hover:text-gray-100"
+          >
+            Ujjwal-webdev
           </a>
         </p>
         <p tw="mt-4 mb-6 text-gray-400">{desc}</p>
 
         {/* Github & Vercel Buttons */}
-        <div tw="flex space-x-2">
-          <StyledIconLink href={githubHref} target="_blank">
-            <Image src={githubIcon} priority height={32} alt="Github Repository" />
-          </StyledIconLink>
-          <StyledIconLink href={deployHref} target="_blank">
-            <Image src={vercelIcon} priority height={32} alt="Deploy with Vercel" />
-          </StyledIconLink>
-          <StyledIconLink href={telegramHref} target="_blank">
-            <Image src={telegramIcon} priority height={32} alt="Telegram Group" />
-          </StyledIconLink>
-          <StyledIconLink href={sponsorHref} target="_blank">
-            <Image src={sponsorIcon} priority height={32} alt="Sponsor the Project" />
-          </StyledIconLink>
-        </div>
 
         <div tw="my-14 w-14 bg-gray-800 h-[2px]" />
       </div>
